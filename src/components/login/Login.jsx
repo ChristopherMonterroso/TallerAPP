@@ -17,7 +17,7 @@ const Login = () => {
     if (username === "admin" && password === "1234") {
         const token = "jwt-token";
         login(token);
-        navigate("/dashboard/RevisionVehiculo");
+        navigate("/TallerAPP/dashboard/RevisionVehiculo");
     } else {
       setError("Invalid credentials");
     }
