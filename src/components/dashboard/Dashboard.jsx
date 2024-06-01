@@ -14,9 +14,9 @@ const Dashboard = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route path="RevisionVehiculo" element={<Check />} />
-        <Route path="opcion2" element={<Opcion2 />} />
-        <Route path="opcion3" element={<Opcion3 />} />
+        <Route path="/TallerAPP/dashboard/RevisionVehiculo" element={<Check />} />
+        <Route path="/TallerAPP/dashboard/opcion2" element={<Opcion2 />} />
+        <Route path="/TallerAPP/dashboard/opcion3" element={<Opcion3 />} />
       </Routes>
     </div>
   );
