@@ -6,7 +6,7 @@ const ProtectedRoute = ({ children }) => {
     const { isAuthenticated } = useAuth();
 
     if (!isAuthenticated) {
-        return <Navigate to="/login" />;
+        return <Navigate to="/TallerAPP/login" />;
     }
     return children;
 };

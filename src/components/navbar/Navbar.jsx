@@ -21,13 +21,13 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-brand">Auto servicios Monterroso</div>
       <div className={`navbar-menu ${isOpen ? "is-active" : ""}`}>
-        <div className="navbar-item" onClick={() => navigateTo("/dashboard/RevisionVehiculo")}>
+        <div className="navbar-item" onClick={() => navigateTo("/TallerAPP/dashboard/RevisionVehiculo")}>
           Revisión de vehículo
         </div>
-        <div className="navbar-item" onClick={() => navigateTo("/dashboard/opcion2")}>
+        <div className="navbar-item" onClick={() => navigateTo("/TallerAPP/dashboard/opcion2")}>
           Opción 2
         </div>
-        <div className="navbar-item" onClick={() => navigateTo("/dashboard/opcion3")}>
+        <div className="navbar-item" onClick={() => navigateTo("/TallerAPP/dashboard/opcion3")}>
           Opción 3
         </div>
         <Logout />
