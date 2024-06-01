@@ -11,10 +11,10 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/TallerAPP/" element={<Login />} />
+          <Route path="/TallerAPP/login" element={<Login />} />
           <Route
-            path="/dashboard/*"
+            path="/TallerAPP/dashboard/*"
             element={
               <ProtectedRoute>
                 <Dashboard />
