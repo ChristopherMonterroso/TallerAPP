@@ -10,7 +10,7 @@ const Logout = () => {
         // Aquí iría tu lógica para cerrar sesión
         console.log('Cerrar sesión');
         logout();
-        navigate('/login');
+        navigate('/TallerAPP/dashboard/login');
 
     };
 
