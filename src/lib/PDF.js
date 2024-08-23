@@ -7,6 +7,7 @@ function escribirTextoCentrado(doc, texto, y) {
     var x = (doc.internal.pageSize.width - textoAncho) / 2;
     doc.text(texto, x, y);
 }
+
 function escribirTextoJustificado(doc, texto, x, y, anchoMaximo, lineaAltura) {
     var palabras = texto.split(" ");
     var linea = "";
@@ -44,13 +45,14 @@ function escribirTextoJustificado(doc, texto, x, y, anchoMaximo, lineaAltura) {
         y += lineaAltura;
     });
 }
+
 const generarRevisionPDF = (datosVehiculo) => {
     // Crear un nuevo documento PDF
     const doc = new jsPDF();
 
     // Establecer la información de la empresa y los datos del vehículo
     const nombre = "Auto Servicios Monterroso";
-    const ocupacion="Taller de mecánica general, enderezado y pintura"
+    const ocupacion = "Taller de mecánica general, enderezado y pintura";
     const direccion = "10 avenida 7-65, Nueva Montserrat, Zona 3 de Mixco";
     const telefono = "Teléfono: (502) 5648-6979";
     const razonSocial = "Razón social: Mayra Alegría";
@@ -65,26 +67,26 @@ const generarRevisionPDF = (datosVehiculo) => {
     // Ajustar la posición vertical de cada elemento de la información de la empresa
     doc.setFont("helvetica", "bold");
 
-
     let yPosition = 20;
     doc.setFontSize(24);
     escribirTextoCentrado(doc, nombre, yPosition);
     doc.setFontSize(12);
-    
-    yPosition += 5; 
+
+    yPosition += 5;
     escribirTextoCentrado(doc, ocupacion, yPosition);
     doc.setFontSize(10);
     doc.setFont("helvetica", "normal");
-    yPosition += 5; 
+    yPosition += 5;
     escribirTextoCentrado(doc, direccion, yPosition);
-    yPosition += 5; 
+    yPosition += 5;
     escribirTextoCentrado(doc, telefono, yPosition);
-    yPosition += 5; 
+    yPosition += 5;
     escribirTextoCentrado(doc, razonSocial, yPosition);
     yPosition += 10;
     doc.setFontSize(18);
     doc.setFont("helvetica", "bold");
     doc.text("Revisión de Vehículo", 105, yPosition, { align: 'center' });
+
     // Ajustar la posición vertical de la tabla y reducir el espacio entre elementos
     const tablaY = yPosition + 10; // Posición vertical de inicio de la tabla
     doc.autoTable({
@@ -104,11 +106,20 @@ const generarRevisionPDF = (datosVehiculo) => {
     doc.text(`Fecha: ${fechaActual}`, 105, yPosition, { align: 'center' });
     yPosition += 10;
     doc.setFontSize(12);
-    doc.text("Resumen de la revisión:", 20, yPosition );
+    doc.text("Resumen de la revisión:", 20, yPosition);
     yPosition += 5;
+
     // Resumen de la revisión
     doc.setFont("helvetica", "normal");
     escribirTextoJustificado(doc, descripcion, 20, yPosition, 170, 5);
+    doc.setFont("helvetica", "bold");
+    // Área para firma con líneas de guiones bajos
+    yPosition += 50; // Espacio para la firma
+    escribirTextoCentrado(doc,"____________________________", yPosition);
+    doc.setFontSize(12);
+    yPosition += 7;
+    
+    escribirTextoCentrado(doc, "Autoservicios Monterroso", yPosition);
 
     doc.save(`revision_${placa}.pdf`);
 };
